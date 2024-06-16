@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Info</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .movie-details {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .movie-details img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .movie-details h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .movie-details p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="movie-details" id="movie-details">
+            <!-- Movie details will be populated here -->
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>About Us</h3>
+                    <p>We are a movie catalog website dedicated to bringing you the best movie recommendations and reviews.</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="https://facebook.jpg" target="_blank"><img src="Images/facebook.jpg" alt="Facebook"></a></li>
+                        <li><a href="https://twitter.com" target="_blank"><img src="Images/twitter.jpg" alt="Twitter"></a></li>
+                        <li><a href="https://instagram.com" target="_blank"><img src="Images/instagram.jpg" alt="Instagram"></a></li>
+                        <li><a href="https://linkedin.com" target="_blank"><img src="Images/linkdin.jpg" alt="LinkedIn"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Movie Catalog. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Function to get query parameters
+        function getQueryParams() {
+            const params = {};
+            window.location.search.substring(1).split('&').forEach(function(param) {
+                const [key, value] = param.split('=');
+                params[key] = decodeURIComponent(value);
+            });
+            return params;
+        }
+
+        // Populate movie details
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = getQueryParams();
+            const movieDetails = document.getElementById('movie-details');
+            
+            const movies = {
+                "1": {
+                    title: "Pink",
+                    poster: "pink.jpg",
+                    releaseYear: "2016",
+                    genre: "Drama",
+                    director: "Aniruddha Roy Chowdhury",
+                    cast: "Amitabh Bachhan, Taapsee Pannu, Kirti Kulhari, Andrea Tariang",
+                    rating: "8.1/10",
+                    synopsis: "After being molested, Minal, along with her friends, tries to file an FIR against a politician's nephew. When the subsequent case gets rigged, Deepak, a retired lawyer, helps them to fight the case."
+                },
+                "2": {
+                    title: "The Conjuring",
+                    poster: "conjuring.jpg",
+                    releaseYear: "2013",
+                    genre: "Horror",
+                    director: "James Wan",
+                    cast: "Vera Farmiga, Patrick Wilson, James Wan, Sterling Jerins",
+                    rating: "7.5/10",
+                    synopsis: "In 1970, paranormal investigators and demonologists Lorraine (Vera Farmiga) and Ed (Patrick Wilson) Warren are summoned to the home of Carolyn (Lili Taylor) and Roger (Ron Livingston) Perron. The Perrons and their five daughters have recently moved into a secluded farmhouse, where a supernatural presence has made itself known. Though the manifestations are relatively benign at first, events soon escalate in horrifying fashion, especially after the Warrens discover the house's macabre history."
+                },
+                "3": {
+                    title: "The Dark Knight",
+                    poster: "dark.knight.jpg",
+                    releaseYear: "2008",
+                    genre: "Action",
+                    director: "Christopher Nolan",
+                    cast: "Christian Bale, Heath Ledger, Aaron Eckhart",
+                    rating: "9.0/10",
+                    synopsis: "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham."
+                },
+                "4": {
+                    title: "The Family Star",
+                    poster: "family.star.poster.jpg",
+                    releaseYear: "2023",
+                    genre: "Action",
+                    director: "Parasuram",
+                    cast: "Vijay Deverakonda, Mrunal Thakur, Dvyansha Kaushik, Ravi Prakash",
+                    rating: "5.1/10",
+                    synopsis: "Govardhan, a devoted architect from Hyderabad, juggles supporting his extended family while seeking a partner who understands his commitments. When he discovers Aadhya's thesis on his family, he challenges her, leading to unexpected twists."
+                },
+                "5": {
+                    title: "Phir hera Pheri",
+                    poster: "php.jpg",
+                    releaseYear: "2006",
+                    genre: "Comedy",
+                    director: "Neeraj Vora",
+                    cast: "Akshay Kumar, Paresh Rawal, Sunil Shetty",
+                    rating: "7.3/10",
+                    synopsis: "A twist of fate changes the lives of Raju, Shyam and Baburao when they get cheated by a fraudster. They must now find another way to repay the loan taken from a dreaded gangster."
+                },
+                "6": {
+                    title: "Dear Comrade",
+                    poster: "dear.comrade.jpg",
+                    releaseYear: "2019",
+                    genre: "Romantic",
+                    director: "Bharat Kamma",
+                    cast: "Vijay Devarkonda, Rashmika Mandaana, Shruti Ramachandran, Raj Arjun",
+                    rating: "7.3/10",
+                    synopsis: "Bobby, a student union leader with anger issues, falls in love with Lilly, a state-level cricketer. However, his temperament poses an obstacle in his path to being united with Lily."
+                },
+                "7": {
+                    title: "Drishyam 2",
+                    poster: "drishyam.jpg",
+                    releaseYear: "2022",
+                    genre: "Thriller",
+                    director: "Abhishek Pathak",
+                    cast: "Ajay Devgan, Shriya Saran, Akshay Khanna, Tabu",
+                    rating: "8.2/10",
+                    synopsis: "Seven years after the case related to Vijay and his family was closed, a series of unexpected events brings a truth to light that threatens to change everything for the Salgaonkars."
+                },
+                "8": {
+                    title: "Matrix",
+                    poster: "matrix.jpg",
+                    releaseYear: "1999",
+                    genre: "Action",
+                    director: "Lana Wachowski, Lilly Wachowski",
+                    cast: "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
+                    rating: "8.7/10",
+                    synopsis: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
+                },
+                "9": {
+                    title: "Joker",
+                    poster: "joker.jpg",
+                    releaseYear: "2019",
+                    genre: "Drama",
+                    director: "Todd Phillips",
+                    cast: "Joaquin Phoenix, Robert De Niro, Zazie Beetz",
+                    rating: "8.4/10",
+                    synopsis: "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime."
+                },
+                "10": {
+                    title: "Forensic",
+                    poster: "forensic.jpg",
+                    releaseYear: "2022",
+                    genre: "Thriller",
+                    director: "Vishal Furia",
+                    cast: "Vikrant Massey, Radhika Apte, Prachi Desai, Rohit Roy",
+                    rating: "6.3/10",
+                    synopsis: "The small hill town of Mussoorie is shaken when little girls begin to disappear and are later found dead. A female police officer teams up with a forensic expert to unravel the mystery."
+                }
+            };
+
+            const movie = movies[params.id];
+            if (movie) {
+                movieDetails.innerHTML = `
+                    <img src="${movie.poster}" alt="${movie.title}">
+                    <h2>${movie.title}</h2>
+                    <p><strong>Release Year:</strong> ${movie.releaseYear}</p>
+                    <p><strong>Genre:</strong> ${movie.genre}</p>
+                    <p><strong>Director:</strong> ${movie.director}</p>
+                    <p><strong>Cast:</strong> ${movie.cast}</p>
+                    <p><strong>Rating:</strong> ${movie.rating}</p>
+                    <p><strong>Synopsis:</strong> ${movie.synopsis}</p>
+                `;
+            } else {
+                movieDetails.innerHTML = '<p>Movie not found!</p>';
+            }
+        });
+    </script>
+</body>
+</html>
